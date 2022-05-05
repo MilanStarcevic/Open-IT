@@ -23,12 +23,12 @@ public class CommentRepository {
     }
 
     public void create(Comment comment) {
-        String query = "insert into comments(carId, userId, comment) values (?, ?, ?)";
+        String query = "insert into comments(postId, userId, comment) values (?, ?, ?)";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(query);
         ) {
-            statement.setInt(1, comment.getCarId());
+            statement.setInt(1, comment.getPostId());
             statement.setInt(2, comment.getUserId());
             statement.setString(3, comment.getComment());
             statement.executeUpdate();
@@ -37,9 +37,9 @@ public class CommentRepository {
         }
     }
 
-    public List<Comment> getAll(String carId) {
+    public List<Comment> getAll(String postId) {
         List<Comment> commentList = new ArrayList<>();
-        String query = "SELECT carId, userId, comment FROM comments WHERE carId = " + carId;
+        String query = "SELECT postId, userId, comment FROM comments WHERE postId = " + postId;
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(query)) {

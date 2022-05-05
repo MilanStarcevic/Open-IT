@@ -9,16 +9,15 @@ values (1, 'bruce', 'qw8Uxa2fXimKruS9wYEm4qm3ZaIGw/hJNvOG3PemhoA=', 'MEI4PU5hcHh
        (3, 'tom', 'FLmYMYmwSRxcy0n2uwysy39ax0TRWvKHswSCPMo+PiI=', 'OChoOitAKWE0TWlD');
 
 insert into persons(id, firstName, lastName, personalNumber, address)
-values (1, 'bruce', 'wayne', '1203992441123', 'NBG'),
-       (2, 'Peter', 'Petigrew', '023348574839234', 'Diagon Alley'),
+values (1, 'Bruce', 'Wayne', '1203992441123', 'Gotham'),
+       (2, 'Peter', 'Pettigrew', '023348574839234', 'Diagon Alley'),
        (3, 'Tom', 'Riddle', '3234989332432', 'Bulgaria');
 
-insert into cars(id, price, wholesalePrice, model, manufacturer)
-values (1, 423, 300, 'Civic', 'Honda'),
-       (2, 350, 200, 'Focus', 'Ford');
+insert into posts(id, picture, text)
+values (1, 'llama.jpg', 'A llama I saw on my travel through Peru.');
 
-insert into comments(carId, userId, comment)
-values (1, 1, 'Honda is great!');
+insert into comments(postId, userId, comment)
+values (1, 2, 'Wow, such a majestic llama!!');
 
 insert into roles(id, name)
 values (1, 'SELLER'),
@@ -47,6 +46,3 @@ values (1, 'CAR_LIST_VIEW'),
 insert into role_to_permissions(roleId, permissionId)
 values (1, 1),
        (2, 1);
-
-insert into scheduled_services(personId, date, carModel)
-values (1, CURRENT_DATE, 'Mercedes S 560');

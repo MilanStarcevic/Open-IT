@@ -1,7 +1,7 @@
 package com.zuehlke.securesoftwaredevelopment.domain;
 
 public class Comment {
-    private int carId;
+    private int postId;
     private Integer userId;
     private String comment;
 
@@ -9,17 +9,17 @@ public class Comment {
     }
 
     public Comment(int carId, Integer userId, String comment) {
-        this.carId = carId;
+        this.postId = carId;
         this.userId = userId;
         this.comment = comment;
     }
 
-    public int getCarId() {
-        return carId;
+    public int getPostId() {
+        return postId;
     }
 
-    public void setCarId(int carId) {
-        this.carId = carId;
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
     public Integer getUserId() {

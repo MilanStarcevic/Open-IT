@@ -1,6 +1,6 @@
 drop table if exists users;
 drop table if exists person;
-drop table if exists cars;
+drop table if exists posts;
 drop table if exists comments;
 
 create table users
@@ -31,20 +31,18 @@ create table persons
     PRIMARY KEY (ID)
 );
 
-create table cars
+create table posts
 (
     id             int          NOT NULL AUTO_INCREMENT,
-    price          double       NOT NULL,
-    wholesalePrice double       NOT NULL,
-    model          varchar(255) NOT NULL,
-    manufacturer   varchar(255) NOT NULL,
+    picture        varchar(255) NOT NULL,
+    text           varchar(255) NOT NULL,
     PRIMARY KEY (ID)
 );
 
 create table comments
 (
     id             int          NOT NULL AUTO_INCREMENT,
-    carId          int          NOT NULL,
+    postId          int          NOT NULL,
     userId         int          NOT NULL,
     comment        varchar(500) NOT NULL,
     PRIMARY KEY (ID)
@@ -70,15 +68,4 @@ create table permissions(
 create table role_to_permissions(
     roleId         int          NOT NULL,
     permissionId   int          NOT NULL
-);
-
-create table scheduled_services(
-     id             int          NOT NULL AUTO_INCREMENT,
-     personId       int          NOT NULL,
-     date           date         NOT NULL,
-     carModel       varchar(255) NOT NULL,
-     remark         varchar(255),
-     ticketNumber   varchar(255),
-     time           time,
-     PRIMARY KEY (ID)
 );
