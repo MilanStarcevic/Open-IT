@@ -25,7 +25,7 @@ public class PostRepository {
     }
 
     public Post findById(String id) {
-        String sqlQuery = "SELECT id, picture, text FROM posts WHERE id=" + id;
+        String sqlQuery = "SELECT id, picture, text, userId FROM posts WHERE id=" + id;
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(sqlQuery)) {
@@ -45,7 +45,7 @@ public class PostRepository {
     public List<Post> search(String searchQuery) throws SQLException {
         List<Post> posts = new ArrayList<>();
         String sqlQuery =
-                "SELECT id, picture, text FROM posts WHERE UPPER(picture) LIKE UPPER('%" + searchQuery + "%')" +
+                "SELECT id, picture, text, userId FROM posts WHERE UPPER(picture) LIKE UPPER('%" + searchQuery + "%')" +
                         "OR UPPER(text) LIKE UPPER('%" + searchQuery + "%')";
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
@@ -59,7 +59,7 @@ public class PostRepository {
 
     public List<Post> getAll() {
         List<Post> posts = new ArrayList<>();
-        String sqlQuery = "SELECT id, picture, text FROM " + POSTS_TABLE;
+        String sqlQuery = "SELECT id, picture, text, userId FROM " + POSTS_TABLE;
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(sqlQuery)) {
@@ -76,6 +76,18 @@ public class PostRepository {
         int id = rs.getInt(1);
         String picture = rs.getString(2);
         String text = rs.getString(3);
-        return new Post(id, picture, text);
+        int userId = rs.getInt(4);
+        return new Post(id, picture, text, userId);
+    }
+
+    public void deletePostsByUser(int userId) {
+        String query = "DELETE FROM posts WHERE userId = " + userId;
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+        ) {
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

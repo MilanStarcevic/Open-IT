@@ -50,18 +50,26 @@ public class PostsController {
             return "posts";
         }
 
-        model.addAttribute("post", postRepository.findById(id));
+        Post post = postRepository.findById(id);
+        Person poster = userRepository.get(post.getUserId());
+
+        model.addAttribute("post", post);
+        model.addAttribute("user", getPersonName(poster));
         List<Comment> comments = commentRepository.getAll(id);
 
         List<ViewComment> commentList = new ArrayList<>();
 
         for (Comment comment : comments) {
             Person person = userRepository.get(comment.getUserId());
-            commentList.add(new ViewComment(person.getFirstName() + " " + person.getLastName(), comment.getComment()));
+            commentList.add(new ViewComment(getPersonName(person), comment.getComment()));
         }
 
         model.addAttribute("comments", commentList);
 
         return "post";
+    }
+
+    private String getPersonName(Person person) {
+        return person.getFirstName() + " " + person.getLastName();
     }
 }

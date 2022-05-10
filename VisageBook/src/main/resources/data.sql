@@ -13,8 +13,8 @@ values (1, 'Aleksandar', 'Korisniković', '1203992441123', 'Gotham'),
        (2, 'Dragica', 'Drugarica', '023348574839234', 'Diagon Alley'),
        (3, 'Blaža', 'Hakerić', '3234989332432', 'Bulgaria');
 
-insert into posts(id, picture, text)
-values (1, 'llama.jpg', 'A llama I saw on my travel through Peru.');
+insert into posts(id, picture, text, userId)
+values (1, 'llama.jpg', 'A llama I saw on my travel through Peru.', 1);
 
 insert into comments(postId, userId, comment)
 values (1, 2, 'Wow, such a majestic llama!!');

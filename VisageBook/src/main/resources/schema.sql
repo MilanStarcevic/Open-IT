@@ -36,6 +36,7 @@ create table posts
     id             int          NOT NULL AUTO_INCREMENT,
     picture        varchar(255) NOT NULL,
     text           varchar(255) NOT NULL,
+    userId         int          NOT NULL,
     PRIMARY KEY (ID)
 );
 

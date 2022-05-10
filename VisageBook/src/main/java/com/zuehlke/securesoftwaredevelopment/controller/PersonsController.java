@@ -4,6 +4,7 @@ import com.zuehlke.securesoftwaredevelopment.config.AuditLogger;
 import com.zuehlke.securesoftwaredevelopment.domain.Person;
 import com.zuehlke.securesoftwaredevelopment.domain.User;
 import com.zuehlke.securesoftwaredevelopment.repository.PersonRepository;
+import com.zuehlke.securesoftwaredevelopment.repository.PostRepository;
 import com.zuehlke.securesoftwaredevelopment.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,10 +26,12 @@ public class PersonsController {
 
     private final PersonRepository personRepository;
     private final UserRepository userRepository;
+    private final PostRepository postRepository;
 
-    public PersonsController(PersonRepository personRepository, UserRepository userRepository) {
+    public PersonsController(PersonRepository personRepository, UserRepository userRepository, PostRepository postRepository) {
         this.personRepository = personRepository;
         this.userRepository = userRepository;
+        this.postRepository = postRepository;
     }
 
     @GetMapping("/persons/{id}")
@@ -46,6 +49,7 @@ public class PersonsController {
 
     @DeleteMapping("/persons/{id}")
     public ResponseEntity<Void> person(@PathVariable int id) {
+        postRepository.deletePostsByUser(id);
         personRepository.delete(id);
         userRepository.delete(id);
 
