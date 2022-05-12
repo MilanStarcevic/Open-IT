@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1acf506d-d4e0-4f49-980b-c3d060751500" name="Changes" comment="Gold plating" />
+    <list default="true" id="1acf506d-d4e0-4f49-980b-c3d060751500" name="Changes" comment="Gold plating">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +37,7 @@
       <updated>1651745720848</updated>
       <workItem from="1651745722188" duration="47000" />
       <workItem from="1652035225239" duration="79000" />
+      <workItem from="1652197801499" duration="314000" />
     </task>
     <task id="LOCAL-00001" summary="Gold plating">
       <created>1652035249725</created>
@@ -43,7 +46,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652035249725</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Gold plating">
+      <created>1652198108746</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652198108746</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
