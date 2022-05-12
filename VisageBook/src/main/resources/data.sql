@@ -1,7 +1,7 @@
 insert into users(id, username, password)
 values (1, 'aleks', 'korisnik'),
        (2, 'dragica', 'drugarica'),
-       (3, 'blaza', 'haker');
+       (3, 'biljana', 'haker');
 
 insert into hashedUsers(id, username, passwordHash, salt)
 values (1, 'bruce', 'qw8Uxa2fXimKruS9wYEm4qm3ZaIGw/hJNvOG3PemhoA=', 'MEI4PU5hcHhaRHZz'),
@@ -11,7 +11,7 @@ values (1, 'bruce', 'qw8Uxa2fXimKruS9wYEm4qm3ZaIGw/hJNvOG3PemhoA=', 'MEI4PU5hcHh
 insert into persons(id, firstName, lastName, personalNumber, address)
 values (1, 'Aleksandar', 'Korisniković', '1203992441123', 'Gotham'),
        (2, 'Dragica', 'Drugarica', '023348574839234', 'Diagon Alley'),
-       (3, 'Blaža', 'Hakerić', '3234989332432', 'Bulgaria');
+       (3, 'Biljana', 'Hakerić', '3234989332432', 'Bulgaria');
 
 insert into posts(id, picture, text, userId)
 values (1, 'llama.jpg', 'A llama I saw on my travel through Peru.', 1);
